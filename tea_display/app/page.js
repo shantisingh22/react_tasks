@@ -1,95 +1,56 @@
-import Image from "next/image";
-import styles from "./page.module.css";
 
-export default function Home() {
+import TeaDisplay from './dynamic_component';  
+import StaticDisplay from './static_component'; 
+
+const App = () => {
+  let a = { name: "Tea", origin: "Australia", description: "Made in Australia" };
+  let b = { name: "Tea1", origin: "America", description: "Made in America" };
+  let c = { name: "Tea2", origin: "Africa", description: "Made in Africa" };
+
+  let tea_list = [
+    {
+      name: "Green Tea",
+      origin: "Chaina",
+      description: "Made in Chaina"
+    },
+    {
+      name: "Black Tea",
+      origin: "India",
+      description: "Made in India"
+    },
+    {
+      name: "White Tea",
+      origin: "Chaina",
+      description: "Made in Chaina"
+    }
+  ];
+
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>app/page.js</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
+    <>
+      <StaticDisplay title="Welcome to Tea Display" content="Here are some tea varieties:" />
+      <TeaDisplay
+        name={a.name}
+        origin={a.origin}
+        description={a.description}
+      />
+      <TeaDisplay
+        name={b.name}
+        origin={b.origin}
+        description={b.description}
+      />
+      <TeaDisplay
+        name={c.name}
+        origin={c.origin}
+        description={c.description}
+      />
+      {tea_list.map((element) => (
+        <TeaDisplay
+          name={element.name}
+          origin={element.origin}
+          description={element.description}
         />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+      ))}
+    </>
   );
 }
+export default App;

@@ -1,0 +1,41 @@
+.container {
+    background-color: lightblue;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+.name {
+    font-size: 24px;
+    color:blueviolet;
+    margin-bottom: 10px;
+}
+.origin {
+    font-size: 24px;
+    color: blueviolet;
+    margin-bottom: 10px;
+}
+.description {
+    color: blueviolet;
+    font-size: 24px;
+}
+
+.display {
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 20px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .origin1{
+    font-size: 24px;
+    color:lightseagreen;
+    margin-bottom: 10px;
+
+  }
+  
+  .discription1{
+    color: lightseagreen;
+    font-size: 24px;
+  }
+  
